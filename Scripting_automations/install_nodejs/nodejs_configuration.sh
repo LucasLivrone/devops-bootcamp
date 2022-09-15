@@ -36,9 +36,8 @@ WantedBy=multi-user.target
 EOF
 
 #Configure NGINX
-cd /etc/nginx/sites-available/
-sudo truncate -s0 default
-sudo cat > default << EOF
+sudo truncate -s0 /etc/nginx/sites-available/default
+sudo cat > /etc/nginx/sites-available/default << EOF
 server  {
 	listen 80 default_server;
 	listen [::]:80 default_server;
