@@ -1,4 +1,7 @@
-# Node.js server
+# Node.js
+
+> This project aims to install and configure a Node.js environment only running automated scripts.
+
 Install and configure Node.js       
 * nodejs_configuration.sh
 
