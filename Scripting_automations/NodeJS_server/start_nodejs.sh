@@ -11,11 +11,11 @@
 
 
 # Initiate service in multiple ports:
-for port in $(seq 3000 3003); do sudo systemctl enable devops@$port; done
-
-for port in $(seq 3000 3003); do sudo systemctl start devops@$port; done
-
-
+for port in $(seq 3000 3003)
+do 
+    sudo systemctl enable devops@$port
+    sudo systemctl start devops@$port
+done
 
 # Restart nginx
 sudo systemctl restart nginx
