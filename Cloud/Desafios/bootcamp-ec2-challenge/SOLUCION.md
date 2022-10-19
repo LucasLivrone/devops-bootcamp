@@ -5,10 +5,6 @@
 
 
 
-```Bash
-lucas@local-desktop:~$ chmod 400 bootcamp.pem
-```
-
 ---
 ## Key pair
 ![5](../pictures/ec2-challenge-2.png)
@@ -72,3 +68,5 @@ npm run start
 ## Arquitectura
 
 ![10](../pictures/ec2-challenge-10.png)
+
+Tool: https://app.diagrams.net/
