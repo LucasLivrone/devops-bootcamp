@@ -58,5 +58,6 @@ Vuelvo a modificar el codigo:
 Vuelvo a correr deploytos3.sh para subir el codigo a la Lambda.
 
 Y para volver a triggerear el Lamda tengo que volver a subir el .csv en el bucket S3 para forzarlo a correr y que se vea reflejado el cambio de codigo:
+
 ![3-4](./pictures/3-4.png)
 
