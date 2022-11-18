@@ -68,3 +68,36 @@ Variables necesarias por contenedores a la hora de iniciar.
 ![variables_de_entorno](./pictures/variables_de_entorno.png)
 
 ---
+
+### Copiar cosas desde y hacia contenedores
+
+``docker cp``
+
+Traer desde un contenedor:
+
+``docker cp reverent_almeida:/usr/local/apache2/htdocs/index.html .``
+
+Enviar al contenedor:
+
+``docker cp index.html reverent_almeida:/usr/local/apache2/htdocs/``
+
+
+---
+
+### Custom Images - Dockerfile
+
+
+![custom_images](./pictures/custom_images.png)
+
+
+![dockerfile](./pictures/dockerfile.png)
+
+
+```
+FROM ubuntu     
+RUN apt-get update && apt install -y apache2       
+CMD ["apachectl","-DFOREGROUND"]    
+```
+
+``docker build -t apache-web .``
+
