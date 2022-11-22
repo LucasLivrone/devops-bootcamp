@@ -101,3 +101,21 @@ CMD ["apachectl","-DFOREGROUND"]
 
 ``docker build -t apache-web .``
 
+
+---
+
+### Docker Hub
+
+
+Pasos para usar el registry de Docker Hub:
+
+```
+docker login -u docker-registry_name
+
+docker build -t nombre_imagen:etiqueta path_to_Dockerfile
+
+docker tag nombre_imagen:etiqueta username_dockerhub/nombre_imagen:etiqueta
+
+docker push username_dockerhub/nombre_imagen:etiqueta
+```
+
