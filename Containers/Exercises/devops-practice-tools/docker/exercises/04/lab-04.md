@@ -12,13 +12,3 @@ docker inspect simple-apache:new #En el apartado "Layers" pueden contarse cuánt
 docker history simple-apache:new #Todas las acciones que son < 0B son capas
 
 docker image inspect simple-nginx -f '{{.RootFS.Layers}}'
-
---- 
-
-### DockerHub registry
-```
-cd Containers/Exercises/04/   
-docker build -t testing:1.0.0 .   
-docker tag testing:1.0.0 lucaslivrone/testing:1.0.0   
-docker push lucaslivrone/testing:1.0.0    
-```
