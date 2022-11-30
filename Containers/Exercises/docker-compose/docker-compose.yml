@@ -1,0 +1,25 @@
+version: '3'
+services:
+  web:
+    container_name: web_nginx
+    ports:
+    - "8080:80"
+    image: nginx
+    volumes:
+      - "vol_nginx:/usr/share/nginx/html"
+    networks:
+      - net_nginx
+  db:
+    container_name: mysql
+    ports:
+    - "3306:3306"
+    image: mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=12345678"
+
+volumes:
+  vol_nginx:
+
+networks:
+  net_nginx:
+    driver: bridge
