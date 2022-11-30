@@ -119,3 +119,51 @@ docker tag nombre_imagen:etiqueta username_dockerhub/nombre_imagen:etiqueta
 docker push username_dockerhub/nombre_imagen:etiqueta
 ```
 
+---
+
+## Almacenamiento
+
+![storage](./pictures/storage.png)
+
+
+![storage_1](./pictures/storage_1.png)
+
+
+![storage_2](./pictures/storage_2.png)
+
+### Ejemplo:
+Creo un volumen, lo enlazo a un contenedor y cambio archivos dentro del volumen:
+![volume_exercise](./pictures/volume_exercise.png)
+
+
+---
+
+## Redes
+
+![network](./pictures/network.png)
+
+![network_commands](./pictures/network_commands.png)
+
+
+`$ docker network create red_guestbook`
+
+`$ docker volume create guestbook_vol`   
+
+Para ejecutar los contenedores:
+
+```
+
+docker run -d --name redis --network red_guestbook -v guestbook_vol:/data redis redis-server --appendonly yes
+
+
+$ docker run -d -p 80:5000 --name guestbook --network red_guestbook roxsross12/guestbook
+
+---
+
+
+docker network create red_wp
+docker volume create vol_wp
+
+docker run -d --name servidor_mysql --network red_wp -v vol_wp:/var/lib/mysql -e "MYSQL_DATABASE=bd_wp" -e "MYSQL_USER=user_wp" -e "MYSQL_PASSWORD=12345678" -e "MYSQL_ROOT_PASSWORD=admin" -p 3306:3306 mariadb
+
+docker run -d --name wp --network red_wp -v vol_wp:/var/www/html/wp-content -e "WORDPRESS_DB_HOST=servidor_mysql" -e "WORDPRESS_DB_USER=user_wp" -e "WORDPRESS_DB_PASSWORD=12345678" -e "WORDPRESS_DB_NAME=bd_wp" -p 80:80 wordpress
