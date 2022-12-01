@@ -35,9 +35,16 @@ docker run -d --name backend_pokemon -p 8000:8000 backend_pokemon
 
 
 # Create Dockerfile for the frontend
-cd devops-practice-tools/docker/challenge/poke-app/frontend-pokemon-app
+cd ../frontend-pokemon-app/
 cat > Dockerfile << EOF
-
+FROM node:16
+WORKDIR /frontend
+ENV PATH /frontend/node_modules/.bin:$PATH
+COPY . /frontend
+RUN npm install --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+EXPOSE 3000
+CMD [ "npm", "start" ]
 EOF
 
 
@@ -46,5 +53,5 @@ docker build -t frontend_pokemon .
 
 
 # Run frontend container
-docker run -d --name frontend_pokemon -p 3000:3000 frontend_pokemon:1.0.0
+docker run -d --name frontend_pokemon -p 3000:3000 frontend_pokemon
 
