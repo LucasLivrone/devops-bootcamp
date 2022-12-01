@@ -25,8 +25,26 @@ EXPOSE 8000
 CMD ["python", "main.py"]
 EOF
 
+
 # Build backend container
 docker build -t backend_pokemon .
 
+
 # Run backend container
-docker run -d -p 8000:8000 backend_pokemon
+docker run -d --name backend_pokemon -p 8000:8000 backend_pokemon
+
+
+# Create Dockerfile for the frontend
+cd devops-practice-tools/docker/challenge/poke-app/frontend-pokemon-app
+cat > Dockerfile << EOF
+
+EOF
+
+
+# Build bfrontendackend container
+docker build -t frontend_pokemon .
+
+
+# Run frontend container
+docker run -d --name frontend_pokemon -p 3000:3000 frontend_pokemon:1.0.0
+
